@@ -120,6 +120,17 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  password: 'password',
+  role: 'role',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  doctorId: 'doctorId',
+  patientId: 'patientId'
+};
+
 exports.Prisma.PatientScalarFieldEnum = {
   id: 'id',
   insurance_num: 'insurance_num',
@@ -130,18 +141,24 @@ exports.Prisma.PatientScalarFieldEnum = {
   address: 'address',
   phone: 'phone',
   email: 'email',
-  bloodType: 'bloodType'
+  bloodType: 'bloodType',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.PatientAllergyScalarFieldEnum = {
   id: 'id',
   patientId: 'patientId',
-  allergyId: 'allergyId'
+  allergyId: 'allergyId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.AllergyScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.HospitalizationScalarFieldEnum = {
@@ -150,14 +167,18 @@ exports.Prisma.HospitalizationScalarFieldEnum = {
   dischargeDate: 'dischargeDate',
   reason: 'reason',
   patientId: 'patientId',
-  roomNumber: 'roomNumber'
+  roomNumber: 'roomNumber',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.RoomScalarFieldEnum = {
   number: 'number',
   type: 'type',
   floor: 'floor',
-  state: 'state'
+  state: 'state',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.DoctorScalarFieldEnum = {
@@ -168,19 +189,25 @@ exports.Prisma.DoctorScalarFieldEnum = {
   maternalSurname: 'maternalSurname',
   yearsOfExp: 'yearsOfExp',
   phone: 'phone',
-  email: 'email'
+  email: 'email',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.DoctorSpecialityScalarFieldEnum = {
   id: 'id',
   doctorId: 'doctorId',
-  specialityId: 'specialityId'
+  specialityId: 'specialityId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SpecialityScalarFieldEnum = {
   code: 'code',
   name: 'name',
-  description: 'description'
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.AppointmentScalarFieldEnum = {
@@ -189,7 +216,9 @@ exports.Prisma.AppointmentScalarFieldEnum = {
   reason: 'reason',
   state: 'state',
   doctorId: 'doctorId',
-  patientId: 'patientId'
+  patientId: 'patientId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.ConsultScalarFieldEnum = {
@@ -197,7 +226,9 @@ exports.Prisma.ConsultScalarFieldEnum = {
   diagnosis: 'diagnosis',
   observations: 'observations',
   appointmentId: 'appointmentId',
-  treatmentId: 'treatmentId'
+  treatmentId: 'treatmentId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.TreatmentScalarFieldEnum = {
@@ -207,13 +238,17 @@ exports.Prisma.TreatmentScalarFieldEnum = {
   frequencyUnit: 'frequencyUnit',
   duration: 'duration',
   durationUnit: 'durationUnit',
-  observations: 'observations'
+  observations: 'observations',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.TreatmentMedicineScalarFieldEnum = {
   id: 'id',
   treatmentId: 'treatmentId',
-  medicineId: 'medicineId'
+  medicineId: 'medicineId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.MedicineScalarFieldEnum = {
@@ -226,17 +261,23 @@ exports.Prisma.MedicineScalarFieldEnum = {
   concentration: 'concentration',
   recommendedDosage: 'recommendedDosage',
   teraputicCategoryid: 'teraputicCategoryid',
-  pharmaceuticalFormid: 'pharmaceuticalFormid'
+  pharmaceuticalFormid: 'pharmaceuticalFormid',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.TerapeuticCategoryScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.PharmaceuticalFormScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -253,6 +294,12 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.UserRole = exports.$Enums.UserRole = {
+  ADMIN: 'ADMIN',
+  DOCTOR: 'DOCTOR',
+  PATIENT: 'PATIENT'
+};
+
 exports.BloodType = exports.$Enums.BloodType = {
   A_POS: 'A_POS',
   A_NEG: 'A_NEG',
@@ -290,6 +337,7 @@ exports.TimeUnit = exports.$Enums.TimeUnit = {
 };
 
 exports.Prisma.ModelName = {
+  User: 'User',
   Patient: 'Patient',
   PatientAllergy: 'PatientAllergy',
   Allergy: 'Allergy',

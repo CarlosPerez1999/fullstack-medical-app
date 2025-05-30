@@ -14,6 +14,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+/// ------------- User -------------
+enum UserRole {
+  ADMIN
+  DOCTOR
+  PATIENT
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  role      UserRole @default(PATIENT)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  doctor   Doctor? @relation(fields: [doctorId], references: [id])
+  doctorId Int?
+
+  patient   Patient? @relation(fields: [patientId], references: [id])
+  patientId Int?
+}
+
 /// ------------- Patient -------------
 enum BloodType {
   A_POS
@@ -40,20 +62,27 @@ model Patient {
   allergy          PatientAllergy[]
   hospitalizations Hospitalization[]
   appointments     Appointment[]
+  user             User[]
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
 }
 
 model PatientAllergy {
-  id        Int     @id @default(autoincrement())
-  patient   Patient @relation(fields: [patientId], references: [id])
+  id        Int      @id @default(autoincrement())
+  patient   Patient  @relation(fields: [patientId], references: [id])
   patientId Int
-  allergy   Allergy @relation(fields: [allergyId], references: [id])
+  allergy   Allergy  @relation(fields: [allergyId], references: [id])
   allergyId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Allergy {
   id               Int              @id @default(autoincrement())
   name             String
   patientAllergies PatientAllergy[]
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
 }
 
 model Hospitalization {
@@ -65,6 +94,8 @@ model Hospitalization {
   patientId     Int
   room          Room      @relation(fields: [roomNumber], references: [number])
   roomNumber    Int
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }
 
 enum RoomState {
@@ -84,6 +115,8 @@ model Room {
   floor            String
   state            RoomState
   hospitalizations Hospitalization[]
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
 }
 
 /// ------------- Doctor -------------
@@ -98,6 +131,9 @@ model Doctor {
   email            String             @unique
   doctorSpeciality DoctorSpeciality[]
   appointments     Appointment[]
+  user             User[]
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
 }
 
 model DoctorSpeciality {
@@ -106,6 +142,8 @@ model DoctorSpeciality {
   doctorId     Int
   speciality   Speciality @relation(fields: [specialityId], references: [code])
   specialityId Int
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
 }
 
 model Speciality {
@@ -113,6 +151,8 @@ model Speciality {
   name               String             @unique
   description        String
   doctorSpecialities DoctorSpeciality[]
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
 }
 
 /// ------------- Appointment -------------
@@ -129,10 +169,12 @@ model Appointment {
   state   AppointmentState @default(PENDING)
   consult Consult?
 
-  doctor    Doctor  @relation(fields: [doctorId], references: [id])
+  doctor    Doctor   @relation(fields: [doctorId], references: [id])
   doctorId  Int
-  patient   Patient @relation(fields: [patientId], references: [id])
+  patient   Patient  @relation(fields: [patientId], references: [id])
   patientId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Consult {
@@ -143,6 +185,8 @@ model Consult {
   appointmentId Int         @unique
   treatment     Treatment   @relation(fields: [treatmentId], references: [id])
   treatmentId   Int         @unique
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
 }
 
 /// ------------- Treatment -------------
@@ -164,6 +208,8 @@ model Treatment {
   observations      String
   consult           Consult?
   treatmentMedicine TreatmentMedicine[]
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
 }
 
 model TreatmentMedicine {
@@ -173,6 +219,8 @@ model TreatmentMedicine {
 
   treatment Treatment @relation(fields: [treatmentId], references: [id])
   medicine  Medicine  @relation(fields: [medicineId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
 
 /// ------------- Medicine -------------
@@ -191,16 +239,22 @@ model Medicine {
 
   terapeuticCategory TerapeuticCategory @relation(fields: [teraputicCategoryid], references: [id])
   pharmaceuticalForm PharmaceuticalForm @relation(fields: [pharmaceuticalFormid], references: [id])
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
 }
 
 model TerapeuticCategory {
   id        Int        @id @default(autoincrement())
   name      String
   medicines Medicine[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
 }
 
 model PharmaceuticalForm {
   id        Int        @id @default(autoincrement())
   name      String
   medicines Medicine[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
 }
