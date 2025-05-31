@@ -70,4 +70,25 @@ class PatientController {
     }
   }
 
+  public async updatePatient(req: Request, res: Response) {
+    try {
+      const patientId = parseValidNumericId(req.params.id)
+      if (patientId === null) {
+        return res.status(400).json({
+          message: `Param id is not a valid patient id`
+        })
+      }
+      const patientData: Patient = req.body
+      const patient: Patient | null = await this.patientService.updatePatient(patientId, patientData)
+      if (!patient) {
+        return res.status(404).json({
+          message: `Patient with id: ${patientId} not found`
+        })
+      }
+      return res.status(200).json(patient)
+    } catch (error) {
+      res.status(500).json({message: `Error updating patient: ${error}`});
+    }
+  }
+
 }
