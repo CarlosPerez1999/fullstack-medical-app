@@ -3,7 +3,7 @@ import {Patient} from "@prisma/client";
 import {Request, Response} from "express";
 import {parseValidNumericId} from "../utils/validation";
 
-class PatientController {
+export class PatientController {
   private patientService: PatientService = PatientService.getInstance()
 
   public async getPatients(req: Request, res: Response) {
