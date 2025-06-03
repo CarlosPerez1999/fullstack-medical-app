@@ -16,6 +16,7 @@ app.use("/doctors", DoctorRoutes)
 app.use("/appointments", AppointmentRoutes)
 app.use("/treatments", TreatmentRoutes)
 app.use("/consults", ConsultRoutes)
+app.use("/medicines", ConsultRoutes)
 
 app.listen(3000, () => {
   console.log(`Server running on http://localhost:3000`)
