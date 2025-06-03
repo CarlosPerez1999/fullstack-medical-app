@@ -6,6 +6,7 @@ import AppointmentRoutes from "./routes/appointment.routes";
 import TreatmentRoutes from "./routes/treatment.routes";
 import ConsultRoutes from "./routes/consult.routes";
 import RoomRoutes from "./routes/room.routes";
+import MedicineRoutes from "./routes/medicine.routes";
 
 const app = express()
 
@@ -17,7 +18,7 @@ app.use("/doctors", DoctorRoutes)
 app.use("/appointments", AppointmentRoutes)
 app.use("/treatments", TreatmentRoutes)
 app.use("/consults", ConsultRoutes)
-app.use("/medicines", ConsultRoutes)
+app.use("/medicines", MedicineRoutes)
 app.use("/rooms", RoomRoutes)
 
 app.listen(3000, () => {
