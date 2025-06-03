@@ -8,12 +8,14 @@ import ConsultRoutes from "./routes/consult.routes";
 import RoomRoutes from "./routes/room.routes";
 import MedicineRoutes from "./routes/medicine.routes";
 import HospitalizationRoutes from "./routes/hospitalization.routes";
+import UserRoutes from "./routes/user.routes";
 
 const app = express()
 
 app.use(express.json())
 app.use(cors())
 
+app.use("/users", UserRoutes)
 app.use("/patients", PatientRoutes)
 app.use("/doctors", DoctorRoutes)
 app.use("/appointments", AppointmentRoutes)
