@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import PatientRoutes from "./routes/patient.routes";
+import PatientRoutes from "./modules/patient/patient.routes";
 import DoctorRoutes from "./routes/doctor.routes";
 import AppointmentRoutes from "./routes/appointment.routes";
 import TreatmentRoutes from "./routes/treatment.routes";
