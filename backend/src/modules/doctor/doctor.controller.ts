@@ -1,7 +1,7 @@
-import {DoctorService} from "../services/doctor.service";
+import {DoctorService} from "./doctor.service";
 import {Doctor} from "@prisma/client";
 import {Request, Response} from "express";
-import {parseValidNumericId} from "../utils/validation";
+import {parseValidNumericId} from "../../utils/validation";
 
 export class DoctorController {
   private doctorService: DoctorService = DoctorService.getInstance()
