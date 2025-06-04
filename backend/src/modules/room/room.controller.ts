@@ -1,7 +1,7 @@
-import {RoomService} from "../services/room.service";
+import {RoomService} from "./room.service";
 import {Room} from "@prisma/client";
 import {Request, Response} from "express";
-import {parseValidNumericId} from "../utils/validation";
+import {parseValidNumericId} from "../../utils/validation";
 
 export class RoomController {
   private roomService: RoomService = RoomService.getInstance()
