@@ -1,7 +1,7 @@
-import {AppointmentService} from "../services/appointment.service";
+import {AppointmentService} from "./appointment.service";
 import {Appointment} from "@prisma/client";
 import {Request, Response} from "express";
-import {parseValidNumericId} from "../utils/validation";
+import {parseValidNumericId} from "../../utils/validation";
 
 export class AppointmentController {
   private appointmentService: AppointmentService = AppointmentService.getInstance()
