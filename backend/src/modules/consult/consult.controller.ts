@@ -1,7 +1,7 @@
-import {ConsultService} from "../services/consult.service";
+import {ConsultService} from "./consult.service";
 import {Consult} from "@prisma/client";
 import {Request, Response} from "express";
-import {parseValidNumericId} from "../utils/validation";
+import {parseValidNumericId} from "../../utils/validation";
 
 export class ConsultController {
   private consultService: ConsultService = ConsultService.getInstance()

@@ -4,7 +4,7 @@ import PatientRoutes from "./modules/patient/patient.routes";
 import DoctorRoutes from "./modules/doctor/doctor.routes";
 import AppointmentRoutes from "./routes/appointment.routes";
 import TreatmentRoutes from "./routes/treatment.routes";
-import ConsultRoutes from "./routes/consult.routes";
+import ConsultRoutes from "./modules/consult/consult.routes";
 import RoomRoutes from "./routes/room.routes";
 import MedicineRoutes from "./routes/medicine.routes";
 import HospitalizationRoutes from "./routes/hospitalization.routes";
