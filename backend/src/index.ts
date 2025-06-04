@@ -3,7 +3,7 @@ import cors from 'cors'
 import PatientRoutes from "./modules/patient/patient.routes";
 import DoctorRoutes from "./modules/doctor/doctor.routes";
 import AppointmentRoutes from "./modules/appointment/appointment.routes";
-import TreatmentRoutes from "./routes/treatment.routes";
+import TreatmentRoutes from "./modules/treatment/treatment.routes";
 import ConsultRoutes from "./modules/consult/consult.routes";
 import RoomRoutes from "./modules/room/room.routes";
 import MedicineRoutes from "./routes/medicine.routes";
