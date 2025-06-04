@@ -1,7 +1,7 @@
-import {HospitalizationService} from "../services/hospitalization.service";
+import {HospitalizationService} from "./hospitalization.service";
 import {Hospitalization} from "@prisma/client";
 import {Request, Response} from "express";
-import {parseValidNumericId} from "../utils/validation";
+import {parseValidNumericId} from "../../utils/validation";
 
 export class HospitalizationController {
   private hospitalizationService: HospitalizationService = HospitalizationService.getInstance()
