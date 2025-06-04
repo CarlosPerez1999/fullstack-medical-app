@@ -1,7 +1,7 @@
-import {AllergyService} from "../services/allergy.service";
+import {AllergyService} from "./allergy.service";
 import {Allergy} from "@prisma/client";
 import {Request, Response} from "express";
-import {parseValidNumericId} from "../utils/validation";
+import {parseValidNumericId} from "../../utils/validation";
 
 export class AllergyController {
   private allergyService: AllergyService = AllergyService.getInstance()

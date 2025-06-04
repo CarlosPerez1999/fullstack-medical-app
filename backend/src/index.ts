@@ -9,7 +9,7 @@ import RoomRoutes from "./routes/room.routes";
 import MedicineRoutes from "./routes/medicine.routes";
 import HospitalizationRoutes from "./routes/hospitalization.routes";
 import UserRoutes from "./routes/user.routes";
-import AllergyRoutes from "./routes/allergy.routes";
+import AllergyRoutes from "./modules/allergy/allergy.routes";
 
 const app = express()
 

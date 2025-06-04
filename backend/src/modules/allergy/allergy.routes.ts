@@ -1,5 +1,5 @@
 import express, {Request, Response} from "express";
-import {AllergyController} from "../controllers/allergy.controller";
+import {AllergyController} from "./allergy.controller";
 
 const router = express.Router();
 const allergyController = new AllergyController()
