@@ -1,7 +1,7 @@
-import {UserService} from "../services/user.service";
+import {UserService} from "./user.service";
 import {User} from "@prisma/client";
 import {Request, Response} from "express";
-import {parseValidNumericId} from "../utils/validation";
+import {parseValidNumericId} from "../../utils/validation";
 
 export class UserController {
   private userService: UserService = UserService.getInstance()
