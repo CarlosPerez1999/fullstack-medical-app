@@ -234,16 +234,16 @@ model Medicine {
   concentration        Int
   recommendedDosage    Int
   treatmentMedicine    TreatmentMedicine[]
-  teraputicCategoryid  Int
+  theraputicCategoryid Int
   pharmaceuticalFormid Int
 
-  terapeuticCategory TerapeuticCategory @relation(fields: [teraputicCategoryid], references: [id])
-  pharmaceuticalForm PharmaceuticalForm @relation(fields: [pharmaceuticalFormid], references: [id])
-  createdAt          DateTime           @default(now())
-  updatedAt          DateTime           @updatedAt
+  therapeuticCategory TherapeuticCategory @relation(fields: [theraputicCategoryid], references: [id])
+  pharmaceuticalForm  PharmaceuticalForm  @relation(fields: [pharmaceuticalFormid], references: [id])
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
 }
 
-model TerapeuticCategory {
+model TherapeuticCategory {
   id        Int        @id @default(autoincrement())
   name      String
   medicines Medicine[]
