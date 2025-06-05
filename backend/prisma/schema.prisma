@@ -200,12 +200,6 @@ enum TimeUnit {
 
 model Treatment {
   id                Int                 @id @default(autoincrement())
-  dose              Decimal
-  frequency         Int
-  frequencyUnit     TimeUnit            @default(DAY)
-  duration          Int
-  durationUnit      TimeUnit            @default(DAY)
-  observations      String
   consult           Consult?
   treatmentMedicine TreatmentMedicine[]
   createdAt         DateTime            @default(now())
@@ -213,9 +207,15 @@ model Treatment {
 }
 
 model TreatmentMedicine {
-  id          Int @id @default(autoincrement())
-  treatmentId Int
-  medicineId  Int
+  id            Int      @id @default(autoincrement())
+  treatmentId   Int
+  medicineId    Int
+  dose          Decimal
+  frequency     Int
+  frequencyUnit TimeUnit @default(DAY)
+  duration      Int
+  durationUnit  TimeUnit @default(DAY)
+  observations  String
 
   treatment Treatment @relation(fields: [treatmentId], references: [id])
   medicine  Medicine  @relation(fields: [medicineId], references: [id])
