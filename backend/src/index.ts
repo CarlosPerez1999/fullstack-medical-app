@@ -10,6 +10,7 @@ import MedicineRoutes from "./modules/medicine/medicine.routes";
 import HospitalizationRoutes from "./modules/hospitalization/hospitalization.routes";
 import UserRoutes from "./modules/user/user.routes";
 import AllergyRoutes from "./modules/allergy/allergy.routes";
+import TreatmentMedicineRoutes from "./modules/treatment-medicine/treatment-medicine.routes";
 
 const app = express()
 
@@ -26,6 +27,7 @@ app.use("/medicines", MedicineRoutes)
 app.use("/rooms", RoomRoutes)
 app.use("/hospitalizations", HospitalizationRoutes)
 app.use("/allergies", AllergyRoutes)
+app.use("/treatment-medicine", TreatmentMedicineRoutes)
 
 app.listen(3000, () => {
   console.log(`Server running on http://localhost:3000`)
