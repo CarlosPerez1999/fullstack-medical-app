@@ -14,6 +14,7 @@ import TreatmentMedicineRoutes from "./modules/treatment-medicine/treatment-medi
 import PharmaceuticalFormRoutes from "./modules/pharmaceutical-form/pharmaceutical-form.routes";
 import PatientAllergyRoutes from "./modules/patient-allergy/patient-allergy.routes";
 import SpecialtyRoutes from "./modules/specialty/specialty.routes";
+import DoctorSpecialtyRoutes from "./modules/doctor-specialty/doctor-specialty.routes";
 
 const app = express()
 
@@ -34,6 +35,7 @@ app.use("/treatment-medicine", TreatmentMedicineRoutes)
 app.use("/pharmaceutical-forms", PharmaceuticalFormRoutes)
 app.use("/patient-allergies", PatientAllergyRoutes)
 app.use("/specialties", SpecialtyRoutes)
+app.use("/doctor-specialties", DoctorSpecialtyRoutes)
 
 app.listen(3000, () => {
   console.log(`Server running on http://localhost:3000`)
