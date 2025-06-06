@@ -121,38 +121,38 @@ model Room {
 
 /// ------------- Doctor -------------
 model Doctor {
-  id               Int                @id @default(autoincrement())
-  professionalID   String             @unique
-  name             String
-  paternalSurname  String
-  maternalSurname  String
-  yearsOfExp       Int
-  phone            String
-  email            String             @unique
-  doctorSpeciality DoctorSpeciality[]
-  appointments     Appointment[]
-  user             User[]
-  createdAt        DateTime           @default(now())
-  updatedAt        DateTime           @updatedAt
+  id              Int               @id @default(autoincrement())
+  professionalID  String            @unique
+  name            String
+  paternalSurname String
+  maternalSurname String
+  yearsOfExp      Int
+  phone           String
+  email           String            @unique
+  doctorSpecialty DoctorSpecialty[]
+  appointments    Appointment[]
+  user            User[]
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
 }
 
-model DoctorSpeciality {
-  id           Int        @id @default(autoincrement())
-  doctor       Doctor     @relation(fields: [doctorId], references: [id])
-  doctorId     Int
-  speciality   Speciality @relation(fields: [specialityId], references: [code])
-  specialityId Int
-  createdAt    DateTime   @default(now())
-  updatedAt    DateTime   @updatedAt
+model DoctorSpecialty {
+  id          Int       @id @default(autoincrement())
+  doctor      Doctor    @relation(fields: [doctorId], references: [id])
+  doctorId    Int
+  specialty   Specialty @relation(fields: [specialtyId], references: [code])
+  specialtyId Int
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
 
-model Speciality {
-  code               Int                @id @default(autoincrement())
-  name               String             @unique
+model Specialty {
+  code               Int               @id @default(autoincrement())
+  name               String            @unique
   description        String
-  doctorSpecialities DoctorSpeciality[]
-  createdAt          DateTime           @default(now())
-  updatedAt          DateTime           @updatedAt
+  doctorSpecialities DoctorSpecialty[]
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
 }
 
 /// ------------- Appointment -------------
