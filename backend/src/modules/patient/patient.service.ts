@@ -28,7 +28,10 @@ export class PatientService {
   public async getPatientById(id: number): Promise<Patient | null> {
     try {
       return await this.prisma.patient.findUnique({
-        where: {id}
+        where: {id},
+        include: {
+          allergy: {include: {allergy: true}},
+        }
       });
     } catch (error) {
       console.error("Error fetching patient: ", error)
