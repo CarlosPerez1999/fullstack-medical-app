@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+    font-family: "Jura";
+    src:url("/fonts/jura.woff") format("woff");
+    font-display: swap;
+}
+
+@theme {
+    --default-font-family: "Jura", sans-serif;
+    --color-surface: #F7FAFC;
+    --color-main-on-surface: #2D3748;
+    --color-secondary-on-surface: #718096;
+    --color-primary: #3182CE;
+    --color-secondary: #63B3ED;
+    --color-success: #38A169;
+    --color-alert: #ECC94B;
+    --color-error: #E53E3E;
+    --color-deactivate: #CBD5EO;
+
+}
+
+.dark {
+    --color-surface: #2D3748 ;
+    --color-main-on-surface: #F7FAFC;
+    --color-secondary-on-surface: #718096;
+    --color-primary: #3182CE;
+    --color-secondary: #63B3ED;
+    --color-success: #38A169;
+    --color-alert: #ECC94B;
+    --color-error: #E53E3E;
+    --color-deactivate: #CBD5EO;
+
+}
+
+
